@@ -6,7 +6,13 @@ extension Array where Element == CGGlyph {
     @usableFromInline
     func advances(for font: CTFont, orientation: CTFontOrientation) -> [CGSize] {
         return Array<CGSize>(unsafeUninitializedCapacity: count) { buffer, count in
-            CTFontGetAdvancesForGlyphs(font, orientation, self, buffer.baseAddress!, self.count)
+            CTFontGetAdvancesForGlyphs(
+                font,
+                orientation,
+                self,
+                buffer.baseAddress!,
+                self.count
+            )
             count = self.count
         }
     }

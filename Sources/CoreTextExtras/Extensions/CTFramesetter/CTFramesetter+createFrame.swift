@@ -13,8 +13,8 @@ extension CTFramesetter {
     /// - Returns: A `CTFrame` object representing the text frame within the specified rectangle,
     ///   computed using `CTFramesetterCreateFrame`.
     @inlinable
-    public func createFrame(_ rect: CGRect) -> CTFrame {
-        return createFrame(CGPath(rect: rect, transform: nil))
+    public func createFrame(with rect: CGRect) -> CTFrame {
+        return createFrame(with: CGPath(rect: rect, transform: nil))
     }
     
     /// Creates a text frame within the specified path.
@@ -27,7 +27,7 @@ extension CTFramesetter {
     /// - Returns: A `CTFrame` object representing the text frame within the specified path,
     ///   computed using `CTFramesetterCreateFrame`.
     @inlinable
-    public func createFrame(_ path: CGPath) -> CTFrame {
+    public func createFrame(with path: CGPath) -> CTFrame {
         return CTFramesetterCreateFrame(self, CFRange(), path, nil)
     }
 }
