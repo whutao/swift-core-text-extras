@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTRun {
@@ -19,3 +20,4 @@ extension CTRun {
         return CTRunDraw(self, context, range)
     }
 }
+#endif

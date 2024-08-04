@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTFrame {
@@ -28,3 +29,4 @@ extension CTFrame {
         }
     }
 }
+#endif

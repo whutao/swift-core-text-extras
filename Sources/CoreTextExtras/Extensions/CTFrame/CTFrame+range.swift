@@ -1,3 +1,4 @@
+#if canImport(CoreText) && canImport(Foundation)
 import CoreText
 import Foundation
 
@@ -29,3 +30,4 @@ extension CTFrame {
         return NSRange(CTFrameGetStringRange(self))
     }
 }
+#endif

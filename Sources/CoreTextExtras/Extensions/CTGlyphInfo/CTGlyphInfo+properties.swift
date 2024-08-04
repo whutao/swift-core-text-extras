@@ -1,3 +1,4 @@
+#if canImport(CoreText) && canImport(Foundation)
 import CoreText
 import Foundation
 
@@ -57,3 +58,4 @@ extension CTGlyphInfo {
         return CTGlyphInfoGetCharacterCollection(self)
     }
 }
+#endif

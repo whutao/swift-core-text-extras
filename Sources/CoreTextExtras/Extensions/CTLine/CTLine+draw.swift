@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTLine {
@@ -19,3 +20,4 @@ extension CTLine {
         CTLineDraw(self, context)
     }
 }
+#endif

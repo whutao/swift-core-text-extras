@@ -1,3 +1,4 @@
+#if canImport(CoreText) && canImport(Foundation)
 import CoreText
 import Foundation
 
@@ -78,3 +79,4 @@ public enum CTFontManager {
         }
     }
 }
+#endif

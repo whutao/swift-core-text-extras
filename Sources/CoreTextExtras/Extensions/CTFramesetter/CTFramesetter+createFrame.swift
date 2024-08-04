@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTFramesetter {
@@ -30,3 +31,4 @@ extension CTFramesetter {
         return CTFramesetterCreateFrame(self, CFRange(), path, nil)
     }
 }
+#endif

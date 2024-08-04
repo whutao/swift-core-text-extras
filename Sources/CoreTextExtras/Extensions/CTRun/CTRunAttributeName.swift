@@ -1,3 +1,4 @@
+#if canImport(CoreText) && canImport(Foundation)
 import CoreText
 import Foundation
 
@@ -63,3 +64,4 @@ public struct CTRunAttributeName: Hashable {
         self.rawValue = cfString as String
     }
 }
+#endif

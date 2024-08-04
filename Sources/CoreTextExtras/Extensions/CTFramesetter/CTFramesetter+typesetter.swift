@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTFramesetter {
@@ -16,3 +17,4 @@ extension CTFramesetter {
         return CTFramesetterGetTypesetter(self)
     }
 }
+#endif

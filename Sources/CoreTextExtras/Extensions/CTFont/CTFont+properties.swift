@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTFont {
@@ -228,3 +229,4 @@ extension CTFont {
         return CTFontCreatePathForGlyph(self, glyph, &transform)
     }
 }
+#endif

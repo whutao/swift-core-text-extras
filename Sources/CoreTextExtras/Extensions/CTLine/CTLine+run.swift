@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTLine {
@@ -16,3 +17,4 @@ extension CTLine {
         return CTLineGetGlyphRuns(self) as? [CTRun] ?? []
     }
 }
+#endif

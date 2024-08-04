@@ -1,3 +1,4 @@
+#if canImport(Foundation)
 import Foundation
 
 extension NSRange {
@@ -9,3 +10,4 @@ extension NSRange {
         self = NSMakeRange(location, length)
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(CoreText) && canImport(Foundation)
 import CoreText
 import Foundation
 
@@ -17,3 +18,4 @@ extension CTLine {
         return NSRange(CTLineGetStringRange(self))
     }
 }
+#endif

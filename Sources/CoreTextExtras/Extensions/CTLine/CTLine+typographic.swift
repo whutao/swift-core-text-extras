@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTLine {
@@ -35,3 +36,4 @@ extension CTLine {
         return ascent + descent + leading
     }
 }
+#endif

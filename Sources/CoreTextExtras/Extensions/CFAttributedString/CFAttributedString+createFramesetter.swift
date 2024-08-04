@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CFAttributedString {
@@ -24,3 +25,4 @@ extension CFAttributedString {
         return CTFramesetterCreateWithAttributedString(self)
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CTFramesetter {
@@ -14,7 +15,14 @@ extension CTFramesetter {
     /// - Returns: A `CGSize` value representing the suggested frame size that fits within the given constraints,
     ///   computed using `CTFramesetterSuggestFrameSizeWithConstraints`.
     @inlinable
-    public func frameSize(suggested constraints: CGSize) -> CGSize {
-        return CTFramesetterSuggestFrameSizeWithConstraints(self, CFRange(), nil, constraints, nil)
+    public func frameSize(constrainedBy constraints: CGSize) -> CGSize {
+        return CTFramesetterSuggestFrameSizeWithConstraints(
+            self,
+            CFRange(),
+            nil,
+            constraints,
+            nil
+        )
     }
 }
+#endif

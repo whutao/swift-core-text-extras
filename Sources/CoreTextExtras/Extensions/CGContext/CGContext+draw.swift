@@ -1,3 +1,4 @@
+#if canImport(CoreText)
 import CoreText
 
 extension CGContext {
@@ -38,3 +39,4 @@ extension CGContext {
         frame.draw(in: self)
     }
 }
+#endif
