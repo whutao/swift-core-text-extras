@@ -5,43 +5,46 @@ extension Array where Element == CGGlyph {
     
     @usableFromInline
     func advances(for font: CTFont, orientation: CTFontOrientation) -> [CGSize] {
-        return Array<CGSize>(unsafeUninitializedCapacity: count) { buffer, count in
+        let glyphCount = count
+        return Array<CGSize>(unsafeUninitializedCapacity: glyphCount) { buffer, count in
             CTFontGetAdvancesForGlyphs(
                 font,
                 orientation,
                 self,
                 buffer.baseAddress!,
-                self.count
+                glyphCount
             )
-            count = self.count
+            count = glyphCount
         }
     }
     
     @usableFromInline
     func boundingRects(for font: CTFont, orientation: CTFontOrientation) -> [CGRect] {
+        let glyphCount = count
         return Array<CGRect>(unsafeUninitializedCapacity: count) { buffer, count in
             CTFontGetBoundingRectsForGlyphs(
                 font,
                 orientation,
                 self,
                 buffer.baseAddress!,
-                self.count
+                glyphCount
             )
-            count = self.count
+            count = glyphCount
         }
     }
     
     @usableFromInline
     func opticalBounds(for font: CTFont) -> [CGRect] {
+        let glyphCount = count
         return Array<CGRect>(unsafeUninitializedCapacity: count) { buffer, count in
             CTFontGetOpticalBoundsForGlyphs(
                 font,
                 self,
                 buffer.baseAddress!,
-                self.count,
+                glyphCount,
                 CFOptionFlags()
             )
-            count = self.count
+            count = glyphCount
         }
     }
 }
