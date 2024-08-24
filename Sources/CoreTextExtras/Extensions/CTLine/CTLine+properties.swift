@@ -36,12 +36,12 @@ extension CTLine {
     /// - Returns: A tuple containing the ascent, descent, and leading values of the line,
     ///   computed using `CTLineGetTypographicBounds`.
     @inlinable
-    public var typographicBounds: (ascent: CGFloat, descent: CGFloat, leading: CGFloat) {
+    public var typographicBounds: (width: CGFloat, ascent: CGFloat, descent: CGFloat, leading: CGFloat) {
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var leading: CGFloat = 0
-        CTLineGetTypographicBounds(self, &ascent, &descent, &leading)
-        return (ascent: ascent, descent: descent, leading: leading)
+        let width = CGFloat(CTLineGetTypographicBounds(self, &ascent, &descent, &leading))
+        return (width: width, ascent: ascent, descent: descent, leading: leading)
     }
     
     /// Returns the typographic height of the line.
@@ -55,7 +55,7 @@ extension CTLine {
     /// - Returns: A `CGFloat` value representing the total typographic height of the line.
     @inlinable
     public var typographicHeight: CGFloat {
-        let (ascent, descent, leading) = typographicBounds
+        let (_, ascent, descent, leading) = typographicBounds
         return ascent + descent + leading
     }
 }
