@@ -40,8 +40,13 @@ extension CTLine {
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var leading: CGFloat = 0
-        let width = CGFloat(CTLineGetTypographicBounds(self, &ascent, &descent, &leading))
-        return (width: width, ascent: ascent, descent: descent, leading: leading)
+        let fullWidth = CGFloat(CTLineGetTypographicBounds(self, &ascent, &descent, &leading))
+        return (
+            width: fullWidth - trailingWhitespaceWidth,
+            ascent: ascent,
+            descent: descent,
+            leading: leading
+        )
     }
     
     /// Returns the typographic height of the line.

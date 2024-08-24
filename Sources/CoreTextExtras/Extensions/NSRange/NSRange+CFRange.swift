@@ -9,5 +9,11 @@ extension NSRange {
         let length = cfRange.length
         self = NSMakeRange(location, length)
     }
+    
+    @usableFromInline
+    var cfRange: CFRange {
+        let location: CFIndex = (location == NSNotFound ? kCFNotFound : location)
+        return CFRange(location: location, length: length)
+    }
 }
 #endif
