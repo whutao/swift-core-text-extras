@@ -4,6 +4,13 @@ import Foundation
 
 extension CTLine {
     
+    public typealias TypographicBounds = (
+        width: CGFloat,
+        ascent: CGFloat,
+        descent: CGFloat,
+        leading: CGFloat
+    )
+    
     /// Returns the string range of the line.
     ///
     /// This property provides the range of characters that the `CTLine` represents.
@@ -34,7 +41,7 @@ extension CTLine {
     /// - Returns: A tuple containing the ascent, descent, and leading values of the line,
     ///   computed using `CTLineGetTypographicBounds`.
     @inlinable
-    public var typographicBounds: (width: CGFloat, ascent: CGFloat, descent: CGFloat, leading: CGFloat) {
+    public var typographicBounds: TypographicBounds {
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var leading: CGFloat = 0

@@ -17,7 +17,7 @@ extension CTRun {
     ///   in the provided graphics context.
     @inlinable
     public func draw(range: CFRange = CFRange(), in context: CGContext) {
-        return CTRunDraw(self, context, range)
+        CTRunDraw(self, context, range)
     }
 }
 #endif

@@ -14,6 +14,7 @@ extension CTLine {
     ///   computed using `CTLineGetGlyphRuns`.
     @inlinable
     public var runs: [CTRun] {
+        kCTFrameProgressionAttributeName
         return CTLineGetGlyphRuns(self) as? [CTRun] ?? []
     }
 }
