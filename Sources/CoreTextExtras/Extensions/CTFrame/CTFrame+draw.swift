@@ -8,8 +8,6 @@ extension CTFrame {
     /// - Parameters:
     ///   - context: The `CGContext` in which to draw the frame.
     ///
-    /// - Complexity: *O(n)* where *n* is the number of lines in the frame.
-    ///
     /// - Note: This method internally uses `CTFrameDraw` to render the frame
     ///   in the provided graphics context.
     @inlinable

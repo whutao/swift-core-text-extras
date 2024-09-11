@@ -8,9 +8,6 @@ extension CFAttributedString {
     /// This method creates a `CTFramesetter` object that can be used to generate text
     /// frames for the attributed string.
     ///
-    /// - Complexity: *O(n)* where *n* is the length of the attributed string, as it involves
-    ///   analyzing the entire string to prepare for text layout.
-    ///
     /// - Returns: A `CTFramesetter` object created with the attributed string,
     ///   computed using `CTFramesetterCreateWithAttributedString`.
     @inlinable

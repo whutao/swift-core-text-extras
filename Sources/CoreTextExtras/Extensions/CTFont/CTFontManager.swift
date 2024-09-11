@@ -7,8 +7,6 @@ public enum CTFontManager {
     
     /// Returns an array of available font family names.
     ///
-    /// - Complexity: *O(n)* where *n* is the number of available font family names.
-    ///
     /// - Returns: An array of `String` values representing the available font family names,
     ///   computed using `CTFontManagerCopyAvailableFontFamilyNames`.
     @inlinable
@@ -17,8 +15,6 @@ public enum CTFontManager {
     }
     
     /// Returns an array of available PostScript names.
-    ///
-    /// - Complexity: *O(n)* where *n* is the number of available PostScript names.
     ///
     /// - Returns: An array of `String` values representing the available PostScript names,
     ///   computed using `CTFontManagerCopyAvailablePostScriptNames`.
@@ -36,9 +32,6 @@ public enum CTFontManager {
     ///   - scope: The scope within which to register the fonts. The default value is `.user`.
     ///
     /// - Throws: An error of type `CFError` if the registration fails.
-    ///
-    /// - Complexity: *O(1)* for the registration call, but the overall complexity depends on the
-    ///   size and number of fonts being registered.
     ///
     /// - Note: This method uses `CTFontManagerRegisterFontsForURL` to perform the registration.
     @inlinable
@@ -62,9 +55,6 @@ public enum CTFontManager {
     ///   - scope: The scope within which to unregister the fonts. The default value is `.user`.
     ///
     /// - Throws: An error of type `CFError` if the unregistration fails.
-    ///
-    /// - Complexity: *O(1)* for the unregistration call, but the overall complexity depends on the
-    ///   size and number of fonts being unregistered.
     ///
     /// - Note: This method uses `CTFontManagerUnregisterFontsForURL` to perform the unregistration.
     @inlinable

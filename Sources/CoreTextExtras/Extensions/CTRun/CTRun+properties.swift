@@ -19,16 +19,7 @@ extension CTRun {
     ///   computed using `CTRunGetTypographicBounds`.
     @inlinable
     public var typographicBounds: TypographicBounds {
-        var ascent: CGFloat = 0
-        var descent: CGFloat = 0
-        var leading: CGFloat = 0
-        let width = CGFloat(CTRunGetTypographicBounds(self, CFRange(), &ascent, &descent, &leading))
-        return (
-            width: width,
-            ascent: ascent,
-            descent: descent,
-            leading: leading
-        )
+        return typographicBounds(for: NSRange())
     }
     
     /// Returns the typographic bounds of the run at the specified range.
@@ -60,10 +51,6 @@ extension CTRun {
     }
     
     /// Returns the attributes of the run.
-    ///
-    /// - Complexity: *O(1)* as the internal function `CTRunGetAttributes`
-    ///   directly retrieves the attributes, which involves a simple lookup operation
-    ///   that completes in constant time.
     ///
     /// - Returns: A dictionary of `NSAttributedString.Key` keys and their corresponding values,
     ///   computed using `CTRunGetAttributes`.

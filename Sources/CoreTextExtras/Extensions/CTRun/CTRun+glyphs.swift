@@ -6,14 +6,11 @@ extension CTRun {
     
     /// Returns the number of glyphs in the run.
     ///
-    /// - Complexity: *O(1)* as the internal function `CTRunGetGlyphCount`
-    ///   directly retrieves the number of glyphs, which involves a simple lookup operation
-    ///   that completes in constant time.
-    ///
-    /// - Returns: The `CFIndex` value representing the number of glyphs in the run, computed using `CTRunGetGlyphCount`.
+    /// - Returns: The `CFIndex` value representing the number of glyphs
+    ///   in the run, computed using `CTRunGetGlyphCount`.
     @inlinable
     public var glyphsCount: CFIndex {
-        CTRunGetGlyphCount(self)
+        return CTRunGetGlyphCount(self)
     }
     
     /// Returns an array of glyphs in the run.

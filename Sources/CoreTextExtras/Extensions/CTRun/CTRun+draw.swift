@@ -1,23 +1,22 @@
-#if canImport(CoreText)
+#if canImport(CoreText) && canImport(Foundation)
 import CoreText
+import Foundation
 
 extension CTRun {
     
     /// Draws the specified range of the `CTRun` in the provided graphics context.
     ///
     /// - Parameters:
-    ///   - range: A `CFRange` specifying the range of glyphs to draw.
-    ///            The default value is an empty `CFRange`, which means the
+    ///   - range: A `NSRange` specifying the range of glyphs to draw.
+    ///            The default value is an empty `NSRange`, which means the
     ///            entire range of the `CTRun`.
     ///   - context: The `CGContext` in which to draw the `CTRun`.
-    ///
-    /// - Complexity: *O(n)* where *n* is the number of glyphs in the specified range.
     ///
     /// - Note: This method internally uses `CTRunDraw` to render the glyphs
     ///   in the provided graphics context.
     @inlinable
-    public func draw(range: CFRange = CFRange(), in context: CGContext) {
-        CTRunDraw(self, context, range)
+    public func draw(range: NSRange = NSRange(), in context: CGContext) {
+        CTRunDraw(self, context, range.cfRange)
     }
 }
 #endif
