@@ -4,6 +4,17 @@ import Foundation
 /// A utility for managing fonts in the CoreText framework.
 public enum CTFontManager {
     
+    /// A notification posted when the system’s registered fonts list changes.
+    ///
+    /// CoreText posts this notification (named `kCTFontManagerRegisteredFontsChangedNotification`)
+    /// whenever fonts are added, removed, or otherwise reloaded at runtime.
+    /// Observe this on `NotificationCenter.default` to update any font caches,
+    /// refresh UI, or re‐layout text after dynamic font registration.
+    @inlinable
+    public static var registeredFontsChangedNotification: Notification.Name {
+        return kCTFontManagerRegisteredFontsChangedNotification as Notification.Name
+    }
+    
     /// Returns an array of available font family names.
     ///
     /// - Returns: An array of `String` values representing the available font family names,
