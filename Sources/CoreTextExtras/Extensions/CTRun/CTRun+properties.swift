@@ -1,4 +1,5 @@
 import CoreText
+import Foundation
 
 extension CTRun {
     
@@ -18,6 +19,15 @@ extension CTRun {
     @inlinable
     public var glyphCount: CFIndex {
         return CTRunGetGlyphCount(self)
+    }
+    
+    /// Gets the range of characters that originally spawned the glyphs in the run.
+    ///
+    /// - Returns: The range of characters that originally
+    ///   spawned the glyphs, of if run is invalid, an empty range.
+    @inlinable
+    public var stringRange: NSRange {
+        return NSRange(CTRunGetStringRange(self))
     }
     
     /// The text matrix for this run, obtained via `CTRunGetTextMatrix`.
