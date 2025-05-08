@@ -11,7 +11,7 @@ extension CTFont {
     ///   calculated via `CTFontGetOpticalBoundsForGlyphs` with default options.
     @inlinable
     public func opticalBounds(of glyphs: [CGGlyph]) -> [CGRect] {
-        return Array<CGRect>(unsafeUninitializedCapacity: glyphs.count) { buffer, initializedCount in
+        return Array(unsafeUninitializedCapacity: glyphs.count) { buffer, initializedCount in
             CTFontGetOpticalBoundsForGlyphs(
                 self,
                 glyphs,

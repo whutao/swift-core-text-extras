@@ -12,7 +12,7 @@ extension CTFont {
     ///   computed via `CTFontGetAdvancesForGlyphs`.
     @inlinable
     public func advances(of glyphs: [CGGlyph], orientation: CTFontOrientation = .default) -> [CGSize] {
-        return Array<CGSize>(unsafeUninitializedCapacity: glyphs.count) { buffer, initializedCount in
+        return Array(unsafeUninitializedCapacity: glyphs.count) { buffer, initializedCount in
             CTFontGetAdvancesForGlyphs(
                 self,
                 orientation,

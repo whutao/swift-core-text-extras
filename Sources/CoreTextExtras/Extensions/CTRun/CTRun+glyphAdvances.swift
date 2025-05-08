@@ -10,7 +10,7 @@ extension CTRun {
     @inlinable
     public func glyphAdvances(in range: NSRange = NSRange()) -> [CGSize] {
         let glyphCount = glyphCount
-        return Array<CGSize>(unsafeUninitializedCapacity: glyphCount) { buffer, initializedCount in
+        return Array(unsafeUninitializedCapacity: glyphCount) { buffer, initializedCount in
             CTRunGetAdvances(
                 self,
                 CFRange(range),

@@ -12,7 +12,7 @@ extension CTFont {
     ///   obtained via `CTFontGetBoundingRectsForGlyphs`.
     @inlinable
     public func boundingRects(of glyphs: [CGGlyph], orientation: CTFontOrientation = .default) -> [CGRect] {
-        return Array<CGRect>(unsafeUninitializedCapacity: glyphs.count) { buffer, initializedCount in
+        return Array(unsafeUninitializedCapacity: glyphs.count) { buffer, initializedCount in
             CTFontGetBoundingRectsForGlyphs(
                 self,
                 orientation,
