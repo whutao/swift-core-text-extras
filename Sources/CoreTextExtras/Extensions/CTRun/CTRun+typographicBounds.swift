@@ -3,32 +3,25 @@ import Foundation
 
 extension CTRun {
     
-    public typealias TypographicBounds = (
-        width: CGFloat,
-        ascent: CGFloat,
-        descent: CGFloat,
-        leading: CGFloat
-    )
-    
-    /// Returns the typographic bounds of the run.
+    /// The typographic metrics for this entire run.
     ///
-    /// This property calculates and returns the width, ascent, descent, and leading of the run.
-    ///
-    /// - Returns: A tuple containing the ascent, descent, and leading values of the run,
-    ///   computed using `CTRunGetTypographicBounds`.
+    /// Wraps `CTRunGetTypographicBounds(_:_:_:_:)` over the full glyph range,
+    /// returning a `CTTypographicBounds` containing:
+    /// - `width`: the total advance width of the run,
+    /// - `ascent`: the maximum distance above the baseline,
+    /// - `descent`: the maximum distance below the baseline,
+    /// - `leading`: the line spacing.
     @inlinable
-    public var typographicBounds: TypographicBounds {
-        return typographicBounds(for: NSRange())
+    public var typographicBounds: CTTypographicBounds {
+        return typographicBounds(for: NSRange(location: 0, length: glyphCount))
     }
     
-    /// Returns the typographic bounds of the run at the specified range.
+    /// Returns the typographic metrics for the glyphs in the specified range.
     ///
-    /// This property calculates and returns the width, ascent, descent, and leading of the run.
-    ///
-    /// - Returns: A tuple containing the ascent, descent, and leading values of the run,
-    ///   computed using `CTRunGetTypographicBounds`.
+    /// Wraps `CTRunGetTypographicBounds(_:_:_:_:)` to produce a
+    /// `CTTypographicBounds` value for just that subset of glyphs.
     @inlinable
-    public func typographicBounds(for range: NSRange) -> TypographicBounds {
+    public func typographicBounds(for range: NSRange) -> CTTypographicBounds {
         var ascent: CGFloat = 0
         var descent: CGFloat = 0
         var leading: CGFloat = 0
@@ -39,7 +32,7 @@ extension CTRun {
             &descent,
             &leading
         )
-        return (
+        return CTTypographicBounds(
             width: width,
             ascent: ascent,
             descent: descent,
