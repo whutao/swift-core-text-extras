@@ -42,4 +42,14 @@ extension CGContext {
     public func draw(_ frame: CTFrame) {
         CTFrameDraw(frame, self)
     }
+    
+    /// Draws the given glyphs of a font at the specified positions.
+    ///
+    /// This function modifies graphics state including font, text size,
+    /// and text matrix if these attributes are specified in font.
+    /// These attributes are not restored.
+    @inlinable
+    public func draw(glyphs: [CGGlyph], at positions: [CGPoint], for font: CTFont) {
+        CTFontDrawGlyphs(font, glyphs, positions, glyphs.count, self)
+    }
 }
