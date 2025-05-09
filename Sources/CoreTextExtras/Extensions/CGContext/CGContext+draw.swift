@@ -7,6 +7,7 @@ extension CGContext {
     /// Draws the entire `CTRun` in the graphics context.
     ///
     /// This method calls the `CTRunDraw` function to render the line in the provided graphics context.
+    /// The call can leave the graphics context in any state and does not flush the context after the draw operation.
     ///
     /// - Parameters:
     ///   - run: The `CTRun` object to be drawn.
@@ -21,6 +22,7 @@ extension CGContext {
     /// Draws the entire `CTLine` in the graphics context.
     ///
     /// This method calls the `CTLineDraw` function to render the line in the provided graphics context.
+    /// The call can leave the graphics context in any state and does not flush the context after the draw operation.
     ///
     /// - Parameters:
     ///   - line: The `CTLine` object to be drawn.
@@ -32,6 +34,7 @@ extension CGContext {
     /// Draws the entire `CTFrame` in the graphics context.
     ///
     /// This method calls the `CTFrameDraw` function to render the line in the provided graphics context.
+    /// The call can leave the context in any state and does not flush it after the draw operation.
     ///
     /// - Parameters:
     ///   - frame: The `CTFrame` object to be drawn.

@@ -20,6 +20,9 @@ extension CTRun {
     ///
     /// Wraps `CTRunGetTypographicBounds(_:_:_:_:)` to produce a
     /// `CTTypographicBounds` value for just that subset of glyphs.
+    ///
+    /// - Parameter range: The portion of the run to measure. If the length of the range is set to 0,
+    ///   then the measure operation continues from the range’s start index to the end of the run.
     @inlinable
     public func typographicBounds(for range: NSRange) -> CTTypographicBounds {
         var ascent: CGFloat = 0
