@@ -2,12 +2,11 @@ import CoreText
 
 extension CTRunDelegate {
     
-    /// Creates an immutable instance of a run delegate
-    /// with provided autoclosures for ascent, descent and width.
+    /// Creates an immutable instance of a run delegate with provided  ascent, descent and width.
     public static func create(
-        ascent: @escaping @autoclosure () -> CGFloat,
-        descent: @escaping @autoclosure () -> CGFloat,
-        width: @escaping @autoclosure () -> CGFloat
+        ascent: CGFloat,
+        descent: CGFloat,
+        width: CGFloat
     ) -> CTRunDelegate? {
         let callbacksHolder = CTRunDelegateCallbacksHolder(ascent: ascent, descent: descent, width: width)
         var callbacks = CTRunDelegateCallbacks(
@@ -16,13 +15,13 @@ extension CTRunDelegate {
                 Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).release()
             },
             getAscent: { pointer in
-                Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).takeUnretainedValue().ascent()
+                Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).takeUnretainedValue().ascent
             },
             getDescent: { pointer in
-                Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).takeUnretainedValue().descent()
+                Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).takeUnretainedValue().descent
             },
             getWidth: { pointer in
-                Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).takeUnretainedValue().width()
+                Unmanaged<CTRunDelegateCallbacksHolder>.fromOpaque(pointer).takeUnretainedValue().width
             }
         )
         return CTRunDelegateCreate(&callbacks, Unmanaged.passRetained(callbacksHolder).toOpaque())
@@ -31,15 +30,11 @@ extension CTRunDelegate {
 
 private final class CTRunDelegateCallbacksHolder {
     
-    let ascent: () -> CGFloat
-    let descent: () -> CGFloat
-    let width: () -> CGFloat
+    let ascent: CGFloat
+    let descent: CGFloat
+    let width: CGFloat
     
-    init(
-        ascent: @escaping () -> CGFloat,
-        descent: @escaping () -> CGFloat,
-        width: @escaping () -> CGFloat
-    ) {
+    init(ascent: CGFloat, descent: CGFloat, width: CGFloat) {
         self.ascent = ascent
         self.descent = descent
         self.width = width
