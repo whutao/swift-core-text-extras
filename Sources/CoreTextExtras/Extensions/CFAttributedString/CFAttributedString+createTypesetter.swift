@@ -7,11 +7,13 @@ extension CFAttributedString {
     /// - Parameter options: A dictionary passed to `CTTypesetterCreateWithAttributedStringAndOptions`.
     /// - Returns: A `CTTypesetter` instance if creation succeeds, otherwise `nil`.
     @inlinable
-    public func createTypesetter(with options: [CFString: Any]? = nil) -> CTTypesetter? {
-        if let options {
-            return CTTypesetterCreateWithAttributedStringAndOptions(self, options as CFDictionary?)
-        } else {
-            return CTTypesetterCreateWithAttributedString(self)
-        }
+    public func createTypesetter(with options: [CFString: Any]) -> CTTypesetter? {
+        return CTTypesetterCreateWithAttributedStringAndOptions(self, options as CFDictionary)
+    }
+    
+    /// Creates a Core Text typesetter.
+    @inlinable
+    public func createTypesetter() -> CTTypesetter {
+        return CTTypesetterCreateWithAttributedString(self)
     }
 }
