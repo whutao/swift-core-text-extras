@@ -8,7 +8,7 @@ extension CTLine {
     /// - Returns: A `CFIndex` representing the character index at the specified position,
     ///   obtained via `CTLineGetStringIndexForPosition`.
     @inlinable
-    public func characterIndex(for position: CGPoint) -> CFIndex {
+    public func stringIndex(for position: CGPoint) -> CFIndex {
         return CTLineGetStringIndexForPosition(self, position)
     }
 }
