@@ -4,8 +4,8 @@ import PackageDescription
 let package = Package(
     name: "swift-core-text-extras",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12)
+        .iOS(.v17),
+        .macOS(.v14)
     ],
     products: [
         .library(name: "CoreTextExtras", targets: ["CoreTextExtras"])
