@@ -29,20 +29,23 @@ extension CTFont {
             .map(Dictionary.init(_:))
             .compactMap { axisParameters in
                 guard
-                    let identifier = (axisParameters[kCTFontVariationAxisIdentifierKey] as? NSNumber)?.uint32Value,
+                    let rawIdentifier = (axisParameters[kCTFontVariationAxisIdentifierKey] as? NSNumber)?.uint32Value,
                     let defaultValue = (axisParameters[kCTFontVariationAxisDefaultValueKey] as? NSNumber)?.doubleValue,
                     let minValue = (axisParameters[kCTFontVariationAxisMinimumValueKey] as? NSNumber)?.doubleValue,
                     let maxValue = (axisParameters[kCTFontVariationAxisMaximumValueKey] as? NSNumber)?.doubleValue
                 else {
                     return nil
                 }
+                let identifier = CTFontVariationAxis.Identifier(rawValue: rawIdentifier)
+                let name = axisParameters[kCTFontVariationAxisNameKey] as? String
+                let isHidden = (axisParameters[kCTFontVariationAxisHiddenKey] as? NSNumber)?.boolValue ?? false
                 return CTFontVariationAxis(
-                    identifier: CTFontVariationAxis.Identifier(rawValue: identifier),
-                    name: axisParameters[kCTFontVariationAxisNameKey] as? String,
+                    identifier: identifier,
+                    name: name,
                     defaultValue: defaultValue,
                     minValue: minValue,
                     maxValue: maxValue,
-                    isHidden: (axisParameters[kCTFontVariationAxisHiddenKey] as? NSNumber)?.boolValue ?? false
+                    isHidden: isHidden
                 )
             }
     }
