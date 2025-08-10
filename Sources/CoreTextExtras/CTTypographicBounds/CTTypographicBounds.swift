@@ -4,7 +4,7 @@ import CoreGraphics
 ///
 /// Contains the total advance width, ascent (height above the baseline),
 /// descent (depth below the baseline), and leading (line spacing).
-public struct CTTypographicBounds: Hashable, Sendable {
+public struct CTTypographicBounds: Equatable, Hashable, Sendable {
     
     /// The total horizontal advance (width) of the text.
     public let width: CGFloat
