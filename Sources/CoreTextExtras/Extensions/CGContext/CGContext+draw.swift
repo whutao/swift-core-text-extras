@@ -50,6 +50,7 @@ extension CGContext {
     /// These attributes are not restored.
     @inlinable
     public func draw(glyphs: [CGGlyph], at positions: [CGPoint], for font: CTFont) {
+        precondition(glyphs.count == positions.count, "Number of glyphs must equal the number of positions.")
         CTFontDrawGlyphs(font, glyphs, positions, glyphs.count, self)
     }
 }
