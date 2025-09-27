@@ -12,6 +12,12 @@ extension NSAttributedString {
         return (self as CFAttributedString).createTypesetter(with: options)
     }
     
+    /// Creates a Core Text typesetter with the specified options.
+    @inlinable
+    public func createTypesetter(with options: CTTypesetter.CreateOptions?) -> CTTypesetter? {
+        return (self as CFAttributedString).createTypesetter(with: options)
+    }
+    
     /// Creates a Core Text typesetter.
     @inlinable
     public func createTypesetter() -> CTTypesetter {
