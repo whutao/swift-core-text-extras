@@ -17,19 +17,19 @@ public enum CTFontManager {
     
     /// Returns an array of available font family names.
     ///
-    /// - Returns: An array of `String` values representing the available font family names,
-    ///   computed using `CTFontManagerCopyAvailableFontFamilyNames`.
+    /// An array of `String` values representing the available font family names,
+    /// computed using `CTFontManagerCopyAvailableFontFamilyNames`.
     @inlinable
-    public static func availableFontFamilyNames() -> [String] {
+    public static var availableFontFamilyNames: [String] {
         return Array(CTFontManagerCopyAvailableFontFamilyNames())
     }
     
     /// Returns an array of available PostScript names.
     ///
-    /// - Returns: An array of `String` values representing the available PostScript names,
-    ///   computed using `CTFontManagerCopyAvailablePostScriptNames`.
+    /// An array of `String` values representing the available PostScript names,
+    /// computed using `CTFontManagerCopyAvailablePostScriptNames`.
     @inlinable
-    public static func availablePostScriptNames() -> [String] {
+    public static var availablePostScriptNames: [String] {
         return Array(CTFontManagerCopyAvailablePostScriptNames())
     }
     
